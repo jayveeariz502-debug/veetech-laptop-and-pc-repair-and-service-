@@ -1,41 +1,4 @@
-<!-- Background Music -->
-<audio id="bgmusic" loop>
-    <source src="sound.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const music = document.getElementById("bgmusic");
-
-window.addEventListener("load", () => {
-
-    // try autoplay
-    music.volume = 0.5;
-
-    let playPromise = music.play();
-
-    if (playPromise !== undefined) {
-        playPromise.catch(() => {
-
-            // mobile/browser protection
-            document.body.addEventListener("click", () => {
-                music.play();
-            }, { once:true });
-
-        });
-    }
-});
-</script>
-
-<script type="module"
-src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
-</script>
-
-<script nomodule
-src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
-</script>
-
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -58,6 +21,7 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             background-size:400% 400%;
             animation:neonBG 10s ease infinite;
             color:white;
+            overflow-x:hidden;
         }
 
         @keyframes neonBG{
@@ -69,7 +33,7 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
         .main{
             width:100%;
             min-height:100vh;
-            padding-bottom:40px;
+            padding-bottom:50px;
         }
 
         /* NAVBAR */
@@ -79,13 +43,15 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             display:flex;
             justify-content:space-between;
             align-items:center;
-            padding:20px 50px;
+            padding:20px 40px;
             flex-wrap:wrap;
+            gap:20px;
         }
 
         .logo{
             color:#00eaff;
             font-size:35px;
+            font-weight:bold;
             text-shadow:
             0 0 10px #00eaff,
             0 0 20px #00eaff,
@@ -95,8 +61,9 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
         .menu ul{
             display:flex;
             list-style:none;
-            gap:25px;
+            gap:20px;
             flex-wrap:wrap;
+            justify-content:center;
         }
 
         .menu ul li a{
@@ -116,7 +83,7 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
         .search{
             display:flex;
             gap:10px;
-            margin-top:10px;
+            flex-wrap:wrap;
         }
 
         .srch{
@@ -181,7 +148,7 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
 
         .cn{
             margin-top:25px;
-            padding:12px 25px;
+            padding:14px 30px;
             border:none;
             border-radius:10px;
             background:#00eaff;
@@ -276,6 +243,27 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             color:#00eaff;
         }
 
+        /* MUSIC BUTTON */
+
+        .music-btn{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            padding:12px 20px;
+            border:none;
+            border-radius:10px;
+            background:#00eaff;
+            color:black;
+            font-weight:bold;
+            cursor:pointer;
+            z-index:999;
+            box-shadow:0 0 20px #00eaff;
+        }
+
+        .music-btn:hover{
+            transform:scale(1.05);
+        }
+
         /* RESPONSIVE */
 
         @media(max-width:768px){
@@ -283,11 +271,6 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             .navbar{
                 flex-direction:column;
                 text-align:center;
-                gap:20px;
-            }
-
-            .menu ul{
-                justify-content:center;
             }
 
             .content{
@@ -320,6 +303,10 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             .form{
                 width:100%;
                 max-width:350px;
+            }
+
+            .menu ul{
+                gap:15px;
             }
         }
 
@@ -365,7 +352,8 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
 
             <p class="par">
                 PC / LAPTOP / PRINTER / CELLPHONE <br>
-                IPHONE BYPASS / CCTV INSTALLER / SOLAR INSTALLER / ELECTRICAL INSTALLER
+                IPHONE BYPASS / CCTV INSTALLER <br>
+                SOLAR INSTALLER / ELECTRICAL INSTALLER
                 <br><br>
 
                 📘 Facebook: Jayvee Ariz
@@ -378,7 +366,7 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
             </p>
 
             <button class="cn">
-                <a href="#">CALL NOW!!</a>
+                <a href="tel:09095195802">CALL NOW!!</a>
             </button>
 
         </div>
@@ -412,7 +400,13 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
 
 </div>
 
-<!-- BACKGROUND MUSIC -->
+<!-- MUSIC BUTTON -->
+
+<button class="music-btn" onclick="toggleMusic()">
+    🎵 Play Music
+</button>
+
+<!-- AUDIO -->
 
 <audio id="bgmusic" loop>
     <source src="sound.mp3" type="audio/mpeg">
@@ -421,26 +415,30 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
 <script>
 
 const music = document.getElementById("bgmusic");
+const button = document.querySelector(".music-btn");
 
-window.addEventListener("load", () => {
+let isPlaying = false;
 
-    music.volume = 0.5;
+function toggleMusic(){
 
-    let playPromise = music.play();
+    if(!isPlaying){
 
-    if(playPromise !== undefined){
+        music.play();
+        music.volume = 0.5;
 
-        playPromise.catch(() => {
+        button.innerHTML = "⏸ Pause Music";
 
-            document.body.addEventListener("click", () => {
-                music.play();
-            }, { once:true });
+        isPlaying = true;
 
-        });
+    }else{
 
+        music.pause();
+
+        button.innerHTML = "🎵 Play Music";
+
+        isPlaying = false;
     }
-
-});
+}
 
 </script>
 

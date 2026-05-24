@@ -1,5 +1,43 @@
-<!DOCTYPE html>
+<!-- Background Music -->
+<audio id="bgmusic" loop>
+    <source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgmusic");
+
+window.addEventListener("load", () => {
+
+    // try autoplay
+    music.volume = 0.5;
+
+    let playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+
+            // mobile/browser protection
+            document.body.addEventListener("click", () => {
+                music.play();
+            }, { once:true });
+
+        });
+    }
+});
+</script>
+
+<script type="module"
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+</script>
+
+<script nomodule
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+</script>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +50,7 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:Arial, sans-serif;
+            font-family:Arial,sans-serif;
         }
 
         body{
@@ -303,9 +341,9 @@
                 <li><a href="#">SERVICE</a></li>
                 <li><a href="#">IPHONE BYPASS</a></li>
                 <li><a href="#">SOLAR INSTALLER</a></li>
-		<li><a href="#">ELECTRICAL INSTALLER</a></li>
-		<li><a href="#">CCTV INSTALLER</a></li>
-		<li><a href="#">CONTACT</a></li>
+                <li><a href="#">ELECTRICAL INSTALLER</a></li>
+                <li><a href="#">CCTV INSTALLER</a></li>
+                <li><a href="#">CONTACT</a></li>
             </ul>
         </div>
 
@@ -333,7 +371,7 @@
                 📘 Facebook: Jayvee Ariz
                 <br>
 
-		📘 Gmail: arizjayvee3@gmail.com
+                📧 Gmail: arizjayvee3@gmail.com
                 <br>
 
                 📞 Call & Text: 09095195802
@@ -374,6 +412,38 @@
 
 </div>
 
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgmusic" loop>
+    <source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("bgmusic");
+
+window.addEventListener("load", () => {
+
+    music.volume = 0.5;
+
+    let playPromise = music.play();
+
+    if(playPromise !== undefined){
+
+        playPromise.catch(() => {
+
+            document.body.addEventListener("click", () => {
+                music.play();
+            }, { once:true });
+
+        });
+
+    }
+
+});
+
+</script>
+
 <script type="module"
 src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
 </script>
@@ -384,13 +454,3 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
 
 </body>
 </html>
-<!-- Background Music -->
-<audio id="bgmusic" autoplay loop>
-  <source src="sound.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-window.addEventListener('click', function () {
-  document.getElementById('bgmusic').play();
-}, { once: true });
-</script>

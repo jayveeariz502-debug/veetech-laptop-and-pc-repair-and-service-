@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VeeTech Repair And Service</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#020024,#090979,#00d4ff);
+            background-size:400% 400%;
+            animation:neonBG 10s ease infinite;
+            color:white;
+        }
+
+        @keyframes neonBG{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        .main{
+            width:100%;
+            min-height:100vh;
+            padding-bottom:40px;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 50px;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            color:#00eaff;
+            font-size:35px;
+            text-shadow:
+            0 0 10px #00eaff,
+            0 0 20px #00eaff,
+            0 0 40px #00eaff;
+        }
+
+        .menu ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+            flex-wrap:wrap;
+        }
+
+        .menu ul li a{
+            text-decoration:none;
+            color:white;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .menu ul li a:hover{
+            color:#00eaff;
+            text-shadow:0 0 10px #00eaff;
+        }
+
+        /* SEARCH */
+
+        .search{
+            display:flex;
+            gap:10px;
+            margin-top:10px;
+        }
+
+        .srch{
+            padding:10px;
+            border:1px solid #00eaff;
+            background:transparent;
+            color:white;
+            border-radius:5px;
+            outline:none;
+        }
+
+        .btn{
+            padding:10px 20px;
+            border:none;
+            background:#00eaff;
+            color:black;
+            font-weight:bold;
+            border-radius:5px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:white;
+            box-shadow:0 0 20px #00eaff;
+        }
+
+        /* CONTENT */
+
+        .content{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:40px;
+            padding-top:60px;
+        }
+
+        .text-content{
+            flex:1;
+            min-width:300px;
+        }
+
+        .text-content h1{
+            font-size:60px;
+            line-height:1.2;
+            text-shadow:0 0 20px #00eaff;
+        }
+
+        .text-content span{
+            color:#00eaff;
+        }
+
+        .par{
+            margin-top:20px;
+            line-height:30px;
+            font-size:18px;
+        }
+
+        .cn{
+            margin-top:25px;
+            padding:12px 25px;
+            border:none;
+            border-radius:10px;
+            background:#00eaff;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .cn a{
+            text-decoration:none;
+            color:black;
+            font-weight:bold;
+        }
+
+        .cn:hover{
+            transform:scale(1.05);
+            box-shadow:0 0 25px #00eaff;
+        }
+
+        /* LOGIN FORM */
+
+        .form{
+            width:320px;
+            background:rgba(0,0,0,0.5);
+            border:1px solid #00eaff;
+            border-radius:15px;
+            padding:30px;
+            box-shadow:0 0 20px #00eaff;
+        }
+
+        .form h2{
+            text-align:center;
+            color:#00eaff;
+            margin-bottom:20px;
+        }
+
+        .form input{
+            width:100%;
+            padding:12px;
+            margin-top:15px;
+            background:transparent;
+            border:none;
+            border-bottom:1px solid #00eaff;
+            color:white;
+            outline:none;
+        }
+
+        .btnn{
+            width:100%;
+            margin-top:25px;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#00eaff;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btnn:hover{
+            box-shadow:0 0 20px #00eaff;
+        }
+
+        .link{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .link a{
+            color:#00eaff;
+            text-decoration:none;
+        }
+
+        .liw{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .icons{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            margin-top:15px;
+            font-size:25px;
+        }
+
+        .icons a{
+            color:white;
+            transition:0.3s;
+        }
+
+        .icons a:hover{
+            color:#00eaff;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                text-align:center;
+                gap:20px;
+            }
+
+            .menu ul{
+                justify-content:center;
+            }
+
+            .content{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .text-content h1{
+                font-size:40px;
+            }
+
+            .par{
+                font-size:16px;
+                line-height:26px;
+            }
+
+            .search{
+                justify-content:center;
+                width:100%;
+            }
+
+            .srch{
+                width:65%;
+            }
+
+            .btn{
+                width:30%;
+            }
+
+            .form{
+                width:100%;
+                max-width:350px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+
+    <div class="navbar">
+
+        <h2 class="logo">VeeTech Repair And Service</h2>
+
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">IPHONE BYPASS</a></li>
+                <li><a href="#">SOLAR INSTALLER</a></li>
+		<li><a href="#">ELECTRICAL INSTALLER</a></li>
+		<li><a href="#">CCTV INSTALLER</a></li>
+		<li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input class="srch" type="search" placeholder="Search Here">
+            <button class="btn">Search</button>
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="text-content">
+
+            <h1>
+                VeeTech Repair <br>
+                <span>And Service</span>
+            </h1>
+
+            <p class="par">
+                PC / LAPTOP / PRINTER / CELLPHONE <br>
+                IPHONE BYPASS / CCTV INSTALLER / SOLAR INSTALLER / ELECTRICAL INSTALLER
+                <br><br>
+
+                📘 Facebook: Jayvee Ariz
+                <br>
+
+		📘 Gmail: arizjayvee3@gmail.com
+                <br>
+
+                📞 Call & Text: 09095195802
+            </p>
+
+            <button class="cn">
+                <a href="#">CALL NOW!!</a>
+            </button>
+
+        </div>
+
+        <div class="form">
+
+            <h2>Login Here</h2>
+
+            <input type="email" placeholder="Enter Email Here">
+
+            <input type="password" placeholder="Enter Password Here">
+
+            <button class="btnn">Login</button>
+
+            <p class="link">
+                Don't have an account?<br>
+                <a href="#">Sign up here</a>
+            </p>
+
+            <p class="liw">Log in with</p>
+
+            <div class="icons">
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module"
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+</script>
+
+<script nomodule
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+</script>
+
+</body>
+</html>
+<!-- Background Music -->
+<audio id="bgmusic" autoplay loop>
+  <source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener('click', function () {
+  document.getElementById('bgmusic').play();
+}, { once: true });
+</script>

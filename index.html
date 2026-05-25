@@ -16,6 +16,10 @@
     font-family:Arial,sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:linear-gradient(135deg,#020024,#090979,#00d4ff);
     background-size:400% 400%;
@@ -304,6 +308,54 @@ body{
     color:#00eaff;
 }
 
+/* GALLERY */
+
+.gallery{
+    width:90%;
+    margin:auto;
+    padding:60px 0;
+    text-align:center;
+}
+
+.gallery h2{
+    font-size:40px;
+    margin-bottom:40px;
+    color:#00eaff;
+    text-shadow:0 0 15px #00eaff;
+}
+
+.gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    background:rgba(255,255,255,0.08);
+    border:1px solid #00eaff;
+    border-radius:15px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.gallery-item:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #00eaff;
+}
+
+.gallery-item img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.gallery-item p{
+    padding:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
 /* MUSIC BUTTON */
 
 .music-btn{
@@ -389,7 +441,7 @@ body{
 <li><a href="#">HOME</a></li>
 <li><a href="#">ABOUT</a></li>
 <li><a href="#">SERVICE</a></li>
-<li><a href="#">IPHONE BYPASS</a></li>
+<li><a href="#iphonebypass">IPHONE BYPASS</a></li>
 <li><a href="#">SOLAR INSTALLER</a></li>
 <li><a href="#">CCTV INSTALLER</a></li>
 <li><a href="#">ELECTRICAL INSTALLER</a></li>
@@ -478,6 +530,38 @@ Don't have an account?<br>
 </div>
 
 </div>
+
+<!-- IPHONE BYPASS SECTION -->
+
+<section id="iphonebypass" class="gallery">
+
+<h2>iPhone Bypass Services</h2>
+
+<div class="gallery-container">
+
+<div class="gallery-item">
+<img src="bypass1.jpg" alt="iPhone Bypass">
+<p>iCloud Bypass</p>
+</div>
+
+<div class="gallery-item">
+<img src="bypass2.jpg" alt="iPhone Unlock">
+<p>Carrier Unlock</p>
+</div>
+
+<div class="gallery-item">
+<img src="bypass3.jpg" alt="Activation Lock">
+<p>Activation Lock Removal</p>
+</div>
+
+<div class="gallery-item">
+<img src="bypass4.jpg" alt="Repair">
+<p>iPhone Repair Service</p>
+</div>
+
+</div>
+
+</section>
 
 </div>
 
